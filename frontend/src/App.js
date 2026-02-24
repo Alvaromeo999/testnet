@@ -1,15 +1,10 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import ELearning from './ELearning';
+import Shop from './Shop';
 
 // Komponen Placeholder untuk Shop & Marketing sementara 
 // sampai file Shop.js kita buat di langkah berikutnya
-const ShopPlaceholder = () => (
-  <div style={{ padding: '20px' }}>
-    <h2>🛒 WHD E-Commerce</h2>
-    <p>Fitur transaksi P2P Pi Network sedang disiapkan.</p>
-  </div>
-);
 
 const EMarketing = () => (
   <div style={{ padding: '20px' }}>
