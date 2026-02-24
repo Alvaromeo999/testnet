@@ -1,45 +1,64 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import Shop from './Shop'; // Pastikan file Shop.js ada di folder yang sama
+import ELearning from './ELearning';
 
-// Komponen Placeholder untuk E-Learning & Marketing
-const ELearning = () => (
+// Komponen Placeholder untuk Shop & Marketing sementara 
+// sampai file Shop.js kita buat di langkah berikutnya
+const ShopPlaceholder = () => (
   <div style={{ padding: '20px' }}>
-    <h2>📚 Modul E-Learning WHD</h2>
-    <p>Video pembelajaran karakter akan muncul di sini.</p>
+    <h2>🛒 WHD E-Commerce</h2>
+    <p>Fitur transaksi P2P Pi Network sedang disiapkan.</p>
   </div>
 );
 
 const EMarketing = () => (
   <div style={{ padding: '20px' }}>
     <h2>📈 E-Marketing Community</h2>
-    <p>Strategi pasar global bagi para Pioneers.</p>
+    <p>Strategi pasar global bagi para Pioneers WHD.</p>
   </div>
 );
 
 function App() {
   useEffect(() => {
+    // Inisialisasi Pi SDK
     if (window.Pi) {
       window.Pi.init({ version: "2.0", sandbox: true });
-      console.log("WHD-Pi SDK Berhasil diinisialisasi");
+      console.log("WHD-Pi: SDK Berhasil diinisialisasi");
     }
   }, []);
 
   return (
     <div className="App">
-      <nav style={{ background: '#673ab7', padding: '10px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
-        <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
-        <Link to="/learning" style={{ color: 'white', textDecoration: 'none' }}>E-Learning</Link>
-        <Link to="/shop" style={{ color: 'white', textDecoration: 'none' }}>E-Commerce</Link>
-        <Link to="/marketing" style={{ color: 'white', textDecoration: 'none' }}>E-Marketing</Link>
-      </nav>
+      {/* Header & Navigasi Utama */}
+      <header style={{ background: '#673ab7', padding: '15px', color: 'white' }}>
+        <h2 style={{ margin: 0 }}>WHD-Pi Ecosystem</h2>
+        <nav style={{ marginTop: '10px', display: 'flex', gap: '15px', justifyContent: 'center' }}>
+          <Link to="/" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>Home</Link>
+          <Link to="/learning" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>E-Learning</Link>
+          <Link to="/shop" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>E-Commerce</Link>
+          <Link to="/marketing" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>E-Marketing</Link>
+        </nav>
+      </header>
 
-      <Routes>
-        <Route path="/" element={<div style={{padding: '20px'}}><h1>Selamat Datang di WHD-Pi</h1><p>Pilih menu di atas untuk memulai.</p></div>} />
-        <Route path="/learning" element={<ELearning />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/marketing" element={<EMarketing />} />
-      </Routes>
+      {/* Konten Dinamis Berdasarkan Route */}
+      <main>
+        <Routes>
+          <Route path="/" element={
+            <div style={{ padding: '40px 20px', textAlign: 'center' }}>
+              <h1>Whole Human Development</h1>
+              <p>Membangun Integritas, Ekonomi, dan Jaringan Global Pioneer.</p>
+              <img src="/logo WHD.png" alt="WHD Logo" style={{ width: '150px', marginTop: '20px' }} />
+            </div>
+          } />
+          <Route path="/learning" element={<ELearning />} />
+          <Route path="/shop" element={<ShopPlaceholder />} />
+          <Route path="/marketing" element={<EMarketing />} />
+        </Routes>
+      </main>
+
+      <footer style={{ marginTop: '50px', padding: '20px', fontSize: '12px', color: '#888', textAlign: 'center', borderTop: '1px solid #eee' }}>
+        &copy; 2026 WHD-Pi Project - @Arifendryw999
+      </footer>
     </div>
   );
 }
