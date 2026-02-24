@@ -1,14 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'normalize.css';
-import './defaults.css';
-import Shop from './Shop';
-import { BrowserRouter as Router } from "react-router-dom";
+import App from './App'; // Ubah dari Shop ke App
 
 ReactDOM.render(
   <Router>
     <React.StrictMode>
-      <Shop />
+      <App /> 
     </React.StrictMode>
   </Router>,
   document.getElementById('root')
