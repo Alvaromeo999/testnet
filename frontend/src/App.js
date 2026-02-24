@@ -46,7 +46,7 @@ function App() {
             </div>
           } />
           <Route path="/learning" element={<ELearning />} />
-          <Route path="/shop" element={<ShopPlaceholder />} />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/marketing" element={<EMarketing />} />
         </Routes>
       </main>
