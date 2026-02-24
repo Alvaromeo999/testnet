@@ -6,6 +6,8 @@ import Shop from './Shop';
 // Komponen Placeholder untuk Shop & Marketing sementara 
 // sampai file Shop.js kita buat di langkah berikutnya
 
+import EMarketing from './EMarketing'; // Tambahkan ini di bagian atas
+// ... hapus const EMarketing lama yang hanya placeholder ...
 const EMarketing = () => (
   <div style={{ padding: '20px' }}>
     <h2>📈 E-Marketing Community</h2>
