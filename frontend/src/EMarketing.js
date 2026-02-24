@@ -7,12 +7,12 @@ const EMarketing = () => {
       <p>Strategi Pemasaran Global dan Pengembangan Komunitas WHD.</p>
       
       <div style={{ marginTop: '20px' }}>
-        <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '10px', marginBottom: '10px' }}>
+        <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '10px', marginBottom: '10px', borderLeft: '5px solid #2196f3' }}>
           <h4>🤝 Komunitas Pioneer</h4>
           <p>Bergabunglah dengan jaringan global untuk memperkuat ekosistem WHD.</p>
         </div>
         
-        <div style={{ background: '#f1f8e9', padding: '15px', borderRadius: '10px' }}>
+        <div style={{ background: '#f1f8e9', padding: '15px', borderRadius: '10px', borderLeft: '5px solid #4caf50' }}>
           <h4>📊 Strategi Pasar</h4>
           <p>Edukasi cara memasarkan produk e-commerce Anda ke seluruh dunia menggunakan Pi.</p>
         </div>
