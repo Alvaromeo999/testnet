@@ -6,7 +6,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "echo \"Skipping tests...\" && exit 0"
+}
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
