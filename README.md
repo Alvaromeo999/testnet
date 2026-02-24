@@ -22,6 +22,4 @@ This Hackathon project runs a method or system :
 
 # e-marketing :
 
-please joint with us 🇲🇨
-
-
+thank you
