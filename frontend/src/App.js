@@ -2,22 +2,10 @@ import React, { useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import ELearning from './ELearning';
 import Shop from './Shop';
-
-// Komponen Placeholder untuk Shop & Marketing sementara 
-// sampai file Shop.js kita buat di langkah berikutnya
-
-import EMarketing from './EMarketing'; // Tambahkan ini di bagian atas
-// ... hapus const EMarketing lama yang hanya placeholder ...
-const EMarketing = () => (
-  <div style={{ padding: '20px' }}>
-    <h2>📈 E-Marketing Community</h2>
-    <p>Strategi pasar global bagi para Pioneers WHD.</p>
-  </div>
-);
+import EMarketing from './EMarketing';
 
 function App() {
   useEffect(() => {
-    // Inisialisasi Pi SDK
     if (window.Pi) {
       window.Pi.init({ version: "2.0", sandbox: true });
       console.log("WHD-Pi: SDK Berhasil diinisialisasi");
@@ -26,8 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* Header & Navigasi Utama */}
-      <header style={{ background: '#673ab7', padding: '15px', color: 'white' }}>
+      <header style={{ background: '#673ab7', padding: '15px', color: 'white', textAlign: 'center' }}>
         <h2 style={{ margin: 0 }}>WHD-Pi Ecosystem</h2>
         <nav style={{ marginTop: '10px', display: 'flex', gap: '15px', justifyContent: 'center' }}>
           <Link to="/" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>Home</Link>
@@ -37,8 +24,7 @@ function App() {
         </nav>
       </header>
 
-      {/* Konten Dinamis Berdasarkan Route */}
-      <main>
+      <main style={{ maxWidth: '600px', margin: 'auto' }}>
         <Routes>
           <Route path="/" element={
             <div style={{ padding: '40px 20px', textAlign: 'center' }}>
@@ -54,7 +40,7 @@ function App() {
       </main>
 
       <footer style={{ marginTop: '50px', padding: '20px', fontSize: '12px', color: '#888', textAlign: 'center', borderTop: '1px solid #eee' }}>
-        &copy; 2026 WHD-Pi Project - @Arifendryw999
+        &copy; 2026 WHD-Pi Project - @Alvaromeo999
       </footer>
     </div>
   );
