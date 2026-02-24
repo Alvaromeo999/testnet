@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHD-Pi App - Whole Human Development</title>
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <style>
+        :root {
+            --pi-purple: #673ab7;
+            --pi-gold: #ffa500;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 20px; background-color: #f8f9fa; color: #333; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 450px; margin: auto; }
+        .logo { width: 100px; margin-bottom: 10px; }
+        h1 { color: var(--pi-purple); font-size: 24px; }
+        p { color: #666; font-size: 14px; }
+        
+        .menu-grid { display: none; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .menu-item { background: #eee; padding: 15px; border-radius: 10px; text-decoration: none; color: var(--pi-purple); font-weight: bold; font-size: 12px; transition: 0.3s; }
+        .menu-item:hover { background: var(--pi-purple); color: white; }
+        .full-width { grid-column: span 2; }
+
+        button { background-color: var(--pi-purple); color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-size: 16px; font-weight: bold; width: 100%; transition: 0.3s; }
+        button:active { transform: scale(0.98); }
+        #user-info { margin-top: 20px; padding: 10px; border-top: 1px solid #eee; display: none; }
+        .status-badge { background: #e8f5e9; color: #2e7d32; padding: 5px 10px; border-radius: 15px; font-size: 12px; margin-top: 5px; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="logo WHD.png" alt="WHD Logo" class="logo">
+        <h1>WHD-Pi Ecosystem</h1>
+        <p>Whole Human Development untuk Masa Depan Pioneers</p>
+        
+        <button id="auth-btn">Login ke WHD-Pi</button>
+        
+        <div id="user-info">
+            <div class="status-badge">Akun Terverifikasi</div>
+            <p id="welcome-msg"></p>
+            
+            <div class="menu-grid" id="main-menu">
+                <a href="#" class="menu-item">📚 E-Learning</a>
+                <a href="#" class="menu-item">🛒 E-Commerce</a>
+                <a href="#" class="menu-item full-width">📈 E-Marketing & Community</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const Pi = window.Pi;
+        // Inisialisasi SDK. Gunakan sandbox: true hanya jika testing di browser biasa
+        Pi.init({ version: "2.0", sandbox: true });
+
+        const authBtn = document.getElementById('auth-btn');
+        const userInfo = document.getElementById('user-info');
+        const welcomeMsg = document.getElementById('welcome-msg');
+        const mainMenu = document.getElementById('main-menu');
+
+        authBtn.addEventListener('click', async () => {
+            try {
+                // Scope 'payments' wajib untuk integrasi e-commerce nanti
+                const scopes = ['username', 'payments'];
+                const auth = await Pi.authenticate(scopes, onIncompletePaymentFound);
+                
+                // Tampilan setelah sukses login
+                welcomeMsg.innerHTML = `Selamat Datang, <strong>${auth.user.username}</strong>!`;
+                authBtn.style.display = 'none';
+                userInfo.style.display = 'block';
+                mainMenu.style.display = 'grid';
+                
+                console.log("Login Berhasil:", auth);
+            } catch (err) {
+                console.error("Login Gagal:", err);
+                alert("Gagal terhubung ke Pi Network: " + err.message);
+            }
+        });
+
+        // Fungsi wajib untuk menangani pembayaran yang tertunda
+        function onIncompletePaymentFound(payment) {
+            console.log("Pembayaran tertunda ditemukan:", payment);
+            // Di sini nanti kita buat logika untuk menyelesaikan transaksi yang macet
+        };
+    </script>
+</body>
+</html>
